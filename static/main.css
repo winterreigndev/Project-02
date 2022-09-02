@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+/* Color Codes
+-------------------------------------------------------------- */
+:root {
+	--todo-bg: #242e42;
+	--todo-text: rgba(255, 255, 255, 0.6);
+	--todo-container: #2f3b52;
+	--todo-primary: #1ac0c6;
+	--todo-secondary: #ff6150;
+	--todo-additional: #ffa822;
+	--todo-forms: #20293c;
+	--darker-color: rgba(0, 0, 0, 0.1);
+	--white: #fff;
+	--faded: rgba(255, 255, 255, 0.1);
+}
+
+/* Global
+  -------------------------------------------------------------- */
+* {
+	margin: 0;
+	-webkit-transition: background-color 0.3s linear, color 0.3s linear;
+	-moz-transition: background-color 0.3s linear, color 0.3s linear;
+	-o-transition: background-color 0.3s linear, color 0.3s linear;
+	-ms-transition: background-color 0.3s linear, color 0.3s linear;
+	transition: background-color 0.3s linear, color 0.3s linear;
+}
+
+html,
+body {
+	margin: 0;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: var(--todo-bg);
+	color: var(--todo-text);
+	font-size: 100%;
+}
+
+.dashboard {
+	margin: 0 auto;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 20% 80%;
+	height: 100%;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.sidebar {
+	background-color: var(--darker-color);
+	height: 100%;
+	padding: 20px;
+	text-align: center;
+}
+
+.dashboard-content {
+	background-color: var(--todo-container);
+	height: 100%;
+	padding: 20px;
+}
+
+.main-content {
+	width: 60%;
+	margin: 140px auto;
+}
+
+.container,
+.content,
+.index-content {
+	width: 70%;
+	margin: 0 auto;
+	padding: 30px;
+	text-align: justify;
+	border-radius: 5px;
+}
+
+.content {
+	background-color: var(--todo-container);
+}
+
+.index-content {
+	background-color: var(--todo-container);
+}
+
+.mobile {
+	display: none;
+}
+
+p {
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom: 20px;
+}
+
+.message {
+	background-color: var(--todo-primary);
+	margin: 0 auto;
+	padding: 5px 10px;
+	color: var(--white);
+}
+
+strong {
+	color: var(--todo-primary);
+}
+
+em {
+	color: var(--todo-secondary);
+}
+
+i {
+	color: var(--white);
+	background-color: var(--todo-primary);
+	padding: 5px;
+	border-radius: 5px;
+}
+
+i:hover {
+	color: var(--white);
+	background-color: var(--todo-secondary);
+}
+
+h3 {
+	width: 100%;
+	text-align: center;
+	text-decoration: underline wavy var(--todo-primary);
+	margin: 10px 0;
+}
+
+h4 {
+	width: 100%;
+	text-align: center;
+	text-decoration: underline wavy var(--todo-secondary);
+	margin: 20px 0;
+}
+
+h4 span {
+	background-color: var(--todo-forms);
+	padding: 10px 20px;
+	border-radius: 20px;
+}
+
+h4 a {
+	text-decoration: underline wavy var(--todo-secondary);
+	color: inherit;
+}
+
+.from-top {
+	margin: 8% 0 10px 0;
+}
+
+blockquote {
+	background-color: var(--todo-bg);
+	padding: 10px;
+	font-style: italic;
+	color: var(--todo-text);
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul li {
+	display: inline-block;
+	padding: 5px;
+}
+
+ul.index {
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+ul.index li {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid var(--todo-bg);
+}
+
+.text-p {
+	padding: 5px;
+	border: 2px solid transparent;
+}
+
+.icon {
+	cursor: pointer;
+}
+
+a {
+	color: var(--todo-additional);
+	text-decoration: 1px underline wavy var(--todo-secondary);
+	font-weight: bold;
+}
+
+a:hover {
+	color: var(--todo-primary);
+	text-decoration: 1px underline wavy var(--todo-additional);
+	font-weight: bold;
+}
+
+.alert-message {
+	background-color: var(--todo-secondary);
+	color: var(--white);
+	padding: 10px;
+	text-align: center;
+}
+
+/* Scrollbar
+  -------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+	width: 20px;
+}
+
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--todo-secondary);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--todo-additional);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--todo-primary);
+}
+
+/* Navigation
+  -------------------------------------------------------------- */
+.homepage {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: right;
+}
+
+.site {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: var(--darker-color);
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	padding: 20px 10px;
+}
+
+.navigation {
+	padding: 20px 10px;
+	background-color: var(--darker-color);
+	color: var(--todo-text);
+}
+
+.navigation a {
+	color: var(--todo-text);
+	text-decoration: none;
+	font-size: 1.1rem;
+	margin: 0 10px;
+	font-weight: bold;
+}
+/* Header
+  -------------------------------------------------------------- */
+header,
+.title {
+	color: var(--todo-primary);
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 300;
+	text-align: center;
+}
+
+header {
+	position: relative;
+	top: 30px;
+	font-size: 3rem;
+}
+
+.title {
+	font-size: 2rem;
+}
+
+header span,
+.title span {
+	color: var(--todo-additional);
+}
+
+.description {
+	color: var(--todo-text);
+	font-size: 1rem !important;
+	line-height: 1rem;
+	position: relative;
+	top: -2rem;
+}
+
+/* Dashboard
+  -------------------------------------------------------------- */
+.dashboard-icon {
+	text-align: center;
+	width: 100%;
+}
+
+.dashboard-icon .material-icons {
+	font-size: 7vw;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	color: var(--faded);
+}
+
+.sidbar-welcome {
+	text-decoration: underline wavy var(--todo-primary);
+	margin: 10px 0;
+	color: var(--white);
+	font-size: 1.1vw;
+}
+
+.user-info {
+	text-decoration: underline wavy var(--todo-additional);
+	color: var(--white);
+	font-size: 1.1vw;
+}
+
+.sidebar ul {
+	margin: 8px 0;
+}
+
+.sidebar li {
+	display: block;
+	background-color: var(--faded);
+	padding: 10px;
+	margin: 2px 0;
+	font-size: 0.8rem;
+	border-radius: 10px;
+}
+
+.dashboard-lists-heading,
+.dashboard-lists {
+	display: grid;
+	grid-template-columns: 10% 45% 25% 20%;
+	text-align: center;
+	margin: 5px 0;
+}
+
+.dashboard-lists {
+	border-bottom: 1px solid var(--faded);
+}
+
+.list-top {
+	background-color: var(--darker-color);
+	font-weight: bold;
+	padding: 5px;
+	margin: 0 1px;
+}
+
+/* To Do List
+  -------------------------------------------------------------- */
+.number {
+	padding: 5px 10px;
+	background-color: var(--todo-primary);
+	text-align: center;
+	border-radius: 5px;
+}
+
+.todo-title {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 700;
+	color: var(--todo-additional);
+}
+
+.todo-description {
+	font-style: italic;
+}
+
+.todo-items {
+	margin: 20px 0;
+}
+
+.todo-add {
+	display: grid;
+	grid-template-columns: 40% 40% 20%;
+	align-items: center;
+	justify-content: center;
+}
+
+.todo-container {
+	background-color: var(--todo-bg);
+	padding: 10px;
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 8% 20% 60% 12%;
+	align-items: center;
+	justify-content: center;
+}
+
+.todo-complete {
+	opacity: 0.3;
+}
+
+.list-info {
+	margin: 30px 0 10px 0;
+	text-align: center;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+}
+.list-info span {
+	background-color: var(--darker-color);
+	color: var(--white);
+	padding: 3px 10px;
+	border-radius: 20px;
+}
+
+/* Forms
+  -------------------------------------------------------------- */
+
+.form-wrapper,
+.create-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.create-wrapper div {
+	padding: 10px;
+}
+
+form {
+	text-align: center;
+	background-color: var(--todo-container);
+	padding: 10px 50px;
+	border-radius: 10px;
+}
+
+form input,
+.todo-forms {
+	background-color: var(--todo-forms);
+	color: var(--todo-text);
+	border: 2px solid var(--todo-forms);
+	padding: 10px 5px;
+	border-radius: 5px;
+}
+
+form input:focus,
+.todo-forms:focus {
+	border: 2px solid var(--todo-additional);
+	outline: none;
+}
+
+.todo-forms {
+	width: 95%;
+}
+
+.todo-add button,
+form button {
+	background-color: var(--todo-forms);
+	color: var(--todo-text);
+	border: 2px solid var(--todo-forms);
+	border-radius: 5px;
+	padding: 5px;
+	width: 95%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.sidebar button {
+	background-color: var(--todo-primary);
+	color: var(--todo-text);
+	border: 2px solid var(--todo-primary);
+	border-radius: 5px;
+	padding: 5px;
+	width: 95%;
+	text-align: center;
+	cursor: pointer;
+}
+
+button.delete {
+	background-color: var(--todo-secondary);
+	color: var(--todo-text);
+	border: 2px solid var(--todo-secondary);
+	margin: 1px 0;
+}
+
+.todo-add button:hover,
+form button:hover,
+.sidebar button:hover,
+button.delete:hover {
+	background-color: var(--todo-additional);
+	color: var(--todo-text);
+	border: 2px solid var(--todo-additional);
+}
+
+.create-new {
+	text-align: right;
+}
+
+.create-new button {
+	background-color: var(--todo-additional);
+	border: 2px solid var(--todo-additional);
+	padding: 10px 20px;
+	border-radius: 20px;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.create-new button:hover {
+	background-color: var(--todo-secondary);
+	border: 2px solid var(--todo-secondary);
+	padding: 10px 20px;
+	border-radius: 20px;
+	color: var(--white);
+	cursor: pointer;
+}
+
+.create-info div {
+	background-color: var(--darker-color);
+	padding: 10px;
+	margin: 4px 0;
+	border-radius: 20px;
+}
+
+.alert-message button {
+	background-color: var(--darker-color);
+	padding: 4px 20px;
+	margin: 0 5px;
+	border: 0px;
+	cursor: pointer;
+}
+
+/* Footer
+  -------------------------------------------------------------- */
+
+footer {
+	width: 100%;
+	color: var(--todo-text);
+	text-align: center;
+	padding: 10px 0;
+}
+
+footer a {
+	color: var(--todo-text);
+	text-decoration: none;
+}
+
+footer a:hover {
+	color: var(--todo-primary);
+	text-decoration: underline;
+}
+
+/* Responsive
+  -------------------------------------------------------------- */
+@media (max-width: 1050px) and (min-width: 300px) {
+	.content {
+		width: 90%;
+	}
+
+	.todo-add {
+		grid-template-columns: 30% 40% 30%;
+	}
+
+	.todo-container {
+		grid-template-columns: 100%;
+		display: block;
+		text-align: center;
+	}
+
+	.no-display {
+		display: none;
+	}
+}

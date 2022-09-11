@@ -3,9 +3,6 @@ The second project built for my web development portfolio in the stack MENN (Mon
 
 I filled all roles for this sample project. Design/Concept, Frontend, and Backend.
 
-## Temporary URL
-[Project-02 @ WinterReign.dev](https://project-02.winterreign.dev/)
-
 # Build Setup
 ```bash
 # install dependencies

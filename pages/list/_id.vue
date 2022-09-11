@@ -9,9 +9,7 @@
 		<!--for viewer && is public-->
 		<div
 			v-if="
-				this.theList.permissions === 'public' &&
-				this.user != this.theList.user &&
-				!isAuthenticated
+				this.theList.permissions === 'public' && this.user != this.theList.user
 			"
 		>
 			<List />
@@ -22,8 +20,7 @@
 		<div
 			v-if="
 				this.theList.permissions === 'private' &&
-				this.user !== this.theList.user &&
-				!isAuthenticated
+				this.user !== this.theList.user
 			"
 		>
 			<h4>We're sorry, this list is set to private by the creator.</h4>

@@ -49,14 +49,8 @@
 					})
 					.then((response) => {
 						const responseData = response.data;
-						console.log(response.data);
 						const expiresIn = +responseData.expiresIn * 5000;
 						const expirationDate = new Date().getTime() + expiresIn;
-						localStorage.setItem('token', responseData.token);
-						localStorage.setItem('username', responseData.username);
-						localStorage.setItem('userId', responseData.userId);
-						localStorage.setItem('role', responseData.role);
-						localStorage.setItem('tokenExpiration', expirationDate);
 						this.$cookies.set('token', responseData.token);
 						this.$cookies.set('username', responseData.username);
 						this.$cookies.set('userId', responseData.userId);

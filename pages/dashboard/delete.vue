@@ -40,11 +40,6 @@
 				await axios.delete('/api/task/remove/' + this.currentUser);
 				await axios.delete('/api/list/remove/' + this.currentUser);
 				await axios.delete('/api/user/' + this.currentUserId);
-				localStorage.removeItem('token');
-				localStorage.removeItem('username');
-				localStorage.removeItem('userId');
-				localStorage.removeItem('role');
-				localStorage.removeItem('tokenExpiration');
 				this.$cookies.remove('token');
 				this.$cookies.remove('username');
 				this.$cookies.remove('userId');

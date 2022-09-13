@@ -64,7 +64,7 @@
 						});
 						this.username = responseData.username;
 						if (response.status == 200) {
-							this.$router.push('/users/' + this.username);
+							this.$router.push('/dashboard/');
 						}
 					})
 					.catch((err) => {

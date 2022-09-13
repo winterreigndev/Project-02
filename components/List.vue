@@ -1,5 +1,12 @@
 <template>
 	<div>
+		<!--share button-->
+		<div align="center" v-if="this.list.permissions == 'public'">
+			<button class="copy-clipboard" @click.prevent="copyClipboard()">
+				{{ this.beforeDisplay }}
+			</button>
+		</div>
+		<!--share button-->
 		<!--header-->
 		<header class="from-top">
 			List:
@@ -250,6 +257,8 @@
 		data() {
 			//all data needed for list component
 			return {
+				fullPath: window.location.href,
+				beforeDisplay: 'Click to copy list URL to clipboard',
 				listId: this.$route.params.id,
 				username: this.$store.getters.username,
 				userId: this.$store.getters.userId,
@@ -285,6 +294,11 @@
 			this.task = taskList.data.task;
 		},
 		methods: {
+			copyClipboard() {
+				const clipboard = this.fullPath;
+				navigator.clipboard.writeText(clipboard);
+				this.beforeDisplay = 'Copied to clipboard';
+			},
 			// task related methods
 			async addItem() {
 				const response = await axios.post('/api/task/create', {
@@ -472,5 +486,13 @@
 		background-color: var(--todo-secondary);
 		border-color: var(--todo-secondary);
 		color: var(--white);
+	}
+
+	.copy-clipboard {
+		cursor: pointer;
+		background-color: var(--todo-container);
+		border: 0px;
+		color: rgba(255, 255, 255, 0.6);
+		margin: 20px 0 0 0;
 	}
 </style>

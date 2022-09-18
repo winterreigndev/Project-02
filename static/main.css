@@ -119,7 +119,7 @@ i {
 
 i:hover {
 	color: var(--white);
-	background-color: var(--todo-secondary);
+	background-color: var(--todo-additional);
 }
 
 h3 {

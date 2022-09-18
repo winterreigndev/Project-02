@@ -7,7 +7,7 @@
 				<div>
 					<label for="title">Title of List:</label>
 				</div>
-				<div><input id="title" v-model.trim="title" /></div>
+				<div><input id="title" v-model.trim="title" required /></div>
 			</div>
 			<div class="create-wrapper">
 				<div>
